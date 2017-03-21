@@ -14,7 +14,7 @@ app.controller("viewPollController", function($scope, $state, getDataFactory) {
                     }
 
                 }
-                console.log($scope.records.length);
+
             }
 
         })

@@ -36,7 +36,6 @@
         }
         
         .odd {
-           
             border-collapse: collapse;
             border: 1px solid grey;
         }
@@ -59,18 +58,6 @@
             background-color: #dff0d8;
             cursor: pointer;
         }
-       /* .notReverse:after {
-     content: '\25bc'; // BLACK DOWN-POINTING TRIANGLE
- }
- 
- .reverse:after {
-     content: '\25b2'; // BLACK UP-POINTING TRIANGLE
- }
- 
- #searchDiv {
-     float: right;
- }
-*/
         
         #btnDiv {
             float: left;
