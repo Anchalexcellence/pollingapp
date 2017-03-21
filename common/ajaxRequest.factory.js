@@ -5,6 +5,5 @@ app.factory("getDataFactory", function(configuration, $resource) {
         getData: function(url) {
             return $resource(configuration.apihost + url)
         },
-
     }
 });

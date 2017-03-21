@@ -5,13 +5,8 @@ app.controller("viewParticularPollController", function($scope, getDataFactory, 
     data.id = $localStorage.id;
     getDataFactory.getData(url).get(data).$promise
         .then(function(response) {
-
-            if (response.error) {
-
-
-            } else {
+            if (!response.error) {
                 $scope.records = response.data;
-
             }
         })
     $scope.back = function() {

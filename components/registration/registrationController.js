@@ -14,7 +14,6 @@ app.controller("registrationController", function($scope, $http, getDataFactory,
                         $scope.alerterror = true;
                         $scope.errmsg = response.message;
                     } else {
-
                         $scope.alertsuccess = true;
                         $scope.form.$setPristine();
                         $timeout(function() {

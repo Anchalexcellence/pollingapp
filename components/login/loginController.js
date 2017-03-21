@@ -1,6 +1,5 @@
 var app = angular.module("angularForm");
 app.controller("loginController", function($scope, $state, getDataFactory) {
-
     $scope.login = function(data) {
         url = "/login";
         getDataFactory.getData(url).get(data).$promise
@@ -9,7 +8,6 @@ app.controller("loginController", function($scope, $state, getDataFactory) {
                     $scope.alertLoginError = true;
                     $scope.loginErrrMsg = response.data;
                 } else {
-
                     $scope.form.$setPristine();
                     $scope.user = {};
                     $state.go('createpoll');

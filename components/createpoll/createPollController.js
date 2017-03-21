@@ -15,7 +15,6 @@ app.controller("createPollController", function($scope, getDataFactory, $timeout
                     $scope.alertCreatePollError = true;
                     $scope.createPollErrMsg = response.data;
                 } else {
-
                     $scope.alertCretePollSuccess = true;
                     $scope.createPollSuccessMsg = response.data;
                     $scope.form.$setPristine();
