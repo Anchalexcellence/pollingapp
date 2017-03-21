@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-md-2">
+            <div ng-include src="'templates/header.html'"></div>
+        </div>
+        <div class="col-sm-8 col-md-8 tblebck">
+            <center>
+                <h4>Take Poll Data</h4></center>
+            <table class="table" dir-paginate="data in records | itemsPerPage:3">
+                <tr>
+                    <td colspan="2">
+                        {{data.title}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="opt1" value={{data.options[0].option}} ng-model="option.option_text"> {{data.options[0].option}}
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="opt2" value={{data.options[1].option}} ng-model="option.option_text"> {{data.options[1].option}}
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="opt3" value={{data.options[2].option}} ng-model="option.option_text"> {{data.options[2].option}}
+                            </label>
+                    </td>
+                    </div>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="opt4" value={{data.options[3].option}} ng-model="option.option_text">{{data.options[3].option}}
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <button type="submit" class="btn btn-primary" ng-click="submit(data,option)">Submit </button>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            <center>
+                <dir-pagination-controls>
+                </dir-pagination-controls>
+            </center>
+        </div>
+    </div>
+</div>
