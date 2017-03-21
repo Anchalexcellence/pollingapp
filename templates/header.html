@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a ui-sref="createpoll">Create Poll</a></li>
+                <li><a ui-sref="viewpoll">View Poll</a></li>
+                <li><a ui-sref="takepoll">Take Poll</a></li>
+                <li><a ui-sref="login">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+.container {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.nav {
+    border-right: 1px solid grey;
+}
+
+@media (min-width: 767px) {
+    .nav {
+        border-right: 2px solid grey;
+        height: 1100px;
+    }
+}
+</style>

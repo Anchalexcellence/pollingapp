@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-md-2">
+            <div ng-include src="'templates/header.html'"></div>
+        </div>
+        <div class="col-sm-8 col-md-8 tblebck">
+            <center>
+                <h4>View Poll Data</h4></center>
+            <table class="table" dir-paginate="data in records | itemsPerPage:4">
+                <tr>
+                    <td colspan="2">
+                        {{data.title}}</td>
+                </tr>
+                <tr>
+                    <th>Options</th>
+                    <th>No. Of Votes</th>
+                </tr>
+                <tr>
+                    <td>a) {{data.options[0].option}}</td>
+                    <td>{{data.options[0].vote}}</td>
+                </tr>
+                <tr>
+                    <td>b) {{data.options[1].option}}</td>
+                    <td>{{data.options[1].vote}}</td>
+                </tr>
+                <tr>
+                    <td>c) {{data.options[2].option}}</td>
+                    <td>{{data.options[2].vote}}</td>
+                </tr>
+                <tr>
+                    <td>d) {{data.options[3].option}}</td>
+                    <td>{{data.options[3].vote}}</td>
+                </tr>
+            </table>
+            <center>
+                <dir-pagination-controls>
+                </dir-pagination-controls>
+            </center>
+        </div>
+    </div>
+</div>
