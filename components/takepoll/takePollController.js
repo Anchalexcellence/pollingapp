@@ -13,7 +13,16 @@ app.controller("takePollController", function($scope, $state, getDataFactory, $l
                         $scope.records.push(response.data[i])
                     }
                 }
+                for (var i = 0; i < $scope.records.length; i++) {
+                    for (var j = 0; j < localData.length; j++) {
+                        if ($scope.records[i]._id == localData[j].id) {
+                            var index = $scope.records.indexOf($scope.records[i]);
+                            $scope.records.splice(index, 1);
 
+                        }
+                    }
+
+                }
             }
         })
     $scope.submit = function(data, option) {
