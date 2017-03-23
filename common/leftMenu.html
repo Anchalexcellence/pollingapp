@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active" ng-click="abc">
+                    <a ui-sref="leftmenu.createpoll">Create Poll</a>
+                </li>
+                <li><a ui-sref="leftmenu.viewpoll">View Poll</a></li>
+                <li><a ui-sref="leftmenu.takepoll">Take Poll</a></li>
+                <li><a ui-sref="login">Log Out</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-10 col-md-10">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+<style>
+.container {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.nav {
+    border-right: 1px solid grey;
+}
+
+@media (min-width: 767px) {
+    .nav {
+        border-right: 2px solid grey;
+        height: 1100px;
+    }
+}
+</style>
+<script>
+$(function() {
+    $('ul.nav li').on('click', function() {
+        $(this).parent().find('li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>

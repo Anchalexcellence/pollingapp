@@ -27,7 +27,6 @@ app.controller("createPollController", function($scope, getDataFactory, $timeout
 
                 }
             })
-
-
     }
+
 });

@@ -14,22 +14,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'components/login/loginForm.html',
             controller: 'loginController',
         })
-        .state('fetch', {
-            url: '/fetch',
-            templateUrl: 'components/fetch/fetch.html',
-            controller: 'fetchDataController',
+        .state('leftmenu', {
+            url: '/leftmenu',
+            templateUrl: 'common/leftMenu.html',
+
+
         })
-        .state('createpoll', {
-            url: '/createpoll',
+        .state('leftmenu.createpoll', {
+
             templateUrl: 'components/createpoll/createPoll.html',
             controller: 'createPollController',
 
         })
-        .state('viewpoll', {
-            url: '/viewpoll',
+        .state('leftmenu.viewpoll', {
+
             templateUrl: 'components/viewpoll/viewPoll.html',
             controller: 'viewPollController',
 
+        })
+        .state('leftmenu.takepoll', {
+
+            templateUrl: 'components/takepoll/takePoll.html',
+            controller: 'takePollController',
 
         })
         .state('viewparticularpoll', {
@@ -37,12 +43,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'components/viewparticularpoll/viewParticularPoll.html',
             controller: 'viewParticularPollController',
         })
-        .state('takepoll', {
-            url: '/takepoll',
-            templateUrl: 'components/takepoll/takePoll.html',
-            controller: 'takePollController',
-
-        })
-
-
 })

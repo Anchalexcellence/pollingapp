@@ -10,7 +10,7 @@ app.controller("viewParticularPollController", function($scope, getDataFactory, 
             }
         })
     $scope.back = function() {
-        $state.go('takepoll');
+        $state.go('leftmenu.takepoll');
     }
 
 });

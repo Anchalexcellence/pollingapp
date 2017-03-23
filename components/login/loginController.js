@@ -10,7 +10,7 @@ app.controller("loginController", function($scope, $state, getDataFactory) {
                 } else {
                     $scope.form.$setPristine();
                     $scope.user = {};
-                    $state.go('createpoll');
+                    $state.go('leftmenu.createpoll');
                 }
             })
     }
