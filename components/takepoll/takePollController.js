@@ -27,6 +27,7 @@ app.controller("takePollController", function($scope, $state, getDataFactory, $l
         })
     $scope.submit = function(data, option) {
         $localStorage.id = data._id;
+        console.log(">>>>>>>>>>>>>>.takepoll storage", $localStorage);
         option.id = data._id;
         url = "/do_vote";
         getDataFactory.getData(url).get(option).$promise

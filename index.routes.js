@@ -15,25 +15,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'loginController',
         })
         .state('leftmenu', {
+            abstract: true,
             url: '/leftmenu',
-            templateUrl: 'common/leftMenu.html',
-
+            templateUrl: 'common/leftmenu/leftMenu.html',
+            controller: 'leftMenuController',
 
         })
         .state('leftmenu.createpoll', {
+            url: '/createpoll',
 
             templateUrl: 'components/createpoll/createPoll.html',
             controller: 'createPollController',
 
         })
         .state('leftmenu.viewpoll', {
-
+            url: '/viewpoll',
             templateUrl: 'components/viewpoll/viewPoll.html',
             controller: 'viewPollController',
 
         })
         .state('leftmenu.takepoll', {
-
+            url: '/takepoll',
             templateUrl: 'components/takepoll/takePoll.html',
             controller: 'takePollController',
 
