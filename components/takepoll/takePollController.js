@@ -1,6 +1,7 @@
 var app = angular.module("angularForm");
 var localData = [];
 app.controller("takePollController", function($scope, $state, getDataFactory, $localStorage) {
+    $scope.isLoading = false;
     url = "/list_polls";
     getDataFactory.getData(url).get().$promise
         .then(function(response) {
@@ -26,14 +27,20 @@ app.controller("takePollController", function($scope, $state, getDataFactory, $l
             }
         })
     $scope.submit = function(data, option) {
-        $localStorage.id = data._id;
-        option.id = data._id;
-        url = "/do_vote";
-        getDataFactory.getData(url).get(option).$promise
-            .then(function(response) {
-                if (!response.error) {
-                    $state.go('viewparticularpoll');
-                }
-            })
+        if (option == undefined) {
+            $scope.isLoading = false;
+        } else {
+            $scope.isLoading = true;
+            $localStorage.id = data._id;
+            option.id = data._id;
+            url = "/do_vote";
+            getDataFactory.getData(url).get(option).$promise
+                .then(function(response) {
+                    $scope.isLoading = false;
+                    if (!response.error) {
+                        $state.go('leftmenu.viewparticularpoll');
+                    }
+                })
+        }
     }
 });

@@ -14,35 +14,35 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'components/login/loginForm.html',
             controller: 'loginController',
         })
-        .state('fetch', {
-            url: '/fetch',
-            templateUrl: 'components/fetch/fetch.html',
-            controller: 'fetchDataController',
+        .state('leftmenu', {
+            abstract: true,
+            url: '/leftmenu',
+            templateUrl: 'common/leftmenu/leftMenu.html',
+            controller: 'leftMenuController',
+
         })
-        .state('createpoll', {
+        .state('leftmenu.createpoll', {
             url: '/createpoll',
+
             templateUrl: 'components/createpoll/createPoll.html',
             controller: 'createPollController',
 
         })
-        .state('viewpoll', {
+        .state('leftmenu.viewpoll', {
             url: '/viewpoll',
             templateUrl: 'components/viewpoll/viewPoll.html',
             controller: 'viewPollController',
 
-
         })
-        .state('viewparticularpoll', {
-            url: '/viewparticularpoll',
-            templateUrl: 'components/viewparticularpoll/viewParticularPoll.html',
-            controller: 'viewParticularPollController',
-        })
-        .state('takepoll', {
+        .state('leftmenu.takepoll', {
             url: '/takepoll',
             templateUrl: 'components/takepoll/takePoll.html',
             controller: 'takePollController',
 
         })
-
-
+        .state('leftmenu.viewparticularpoll', {
+            url: '/viewparticularpoll',
+            templateUrl: 'components/viewparticularpoll/viewParticularPoll.html',
+            controller: 'viewParticularPollController',
+        })
 })
