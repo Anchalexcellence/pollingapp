@@ -40,7 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'takePollController',
 
         })
-        .state('viewparticularpoll', {
+        .state('leftmenu.viewparticularpoll', {
             url: '/viewparticularpoll',
             templateUrl: 'components/viewparticularpoll/viewParticularPoll.html',
             controller: 'viewParticularPollController',

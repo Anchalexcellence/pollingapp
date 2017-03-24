@@ -27,16 +27,20 @@ app.controller("takePollController", function($scope, $state, getDataFactory, $l
             }
         })
     $scope.submit = function(data, option) {
-        $scope.isLoading = true;
-        $localStorage.id = data._id;
-        option.id = data._id;
-        url = "/do_vote";
-        getDataFactory.getData(url).get(option).$promise
-            .then(function(response) {
-                $scope.isLoading = false;
-                if (!response.error) {
-                    $state.go('viewparticularpoll');
-                }
-            })
+        if (option == undefined) {
+            $scope.isLoading = false;
+        } else {
+            $scope.isLoading = true;
+            $localStorage.id = data._id;
+            option.id = data._id;
+            url = "/do_vote";
+            getDataFactory.getData(url).get(option).$promise
+                .then(function(response) {
+                    $scope.isLoading = false;
+                    if (!response.error) {
+                        $state.go('leftmenu.viewparticularpoll');
+                    }
+                })
+        }
     }
 });

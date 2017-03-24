@@ -1,36 +1,33 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-md-8 tblebck">
-            <center>
-                <h4>View single Poll Data</center></h4>
-                <button ng-click="back()" class="btn btn-primary pull-right">Back
-                </button>
-                <table class="table">
-                    <tr>
-                        <td colspan="2">
-                            {{records.title}}</td>
-                    </tr>
-                    <tr>
-                        <th>Options</th>
-                        <th>No. Of Votes</th>
-                    </tr>
-                    <tr>
-                        <td>a) {{records.options[0].option}}</td>
-                        <td>{{records.options[0].vote}}</td>
-                    </tr>
-                    <tr>
-                        <td>b) {{records.options[1].option}}</td>
-                        <td>{{records.options[1].vote}}</td>
-                    </tr>
-                    <tr>
-                        <td>c) {{records.options[2].option}}</td>
-                        <td>{{records.options[2].vote}}</td>
-                    </tr>
-                    <tr>
-                        <td>d) {{records.options[3].option}}</td>
-                        <td>{{records.options[3].vote}}</td>
-                    </tr>
-                </table>
-        </div>
-    </div>
+<div class="col-sm-6 col-sm-offset-2">
+    <center>
+        <h4>View single Poll Data </h4>
+    </center>
+    <button ng-click="back()" class="btn btn-primary pull-right">Back
+    </button>
+    <table class="table">
+        <tr>
+            <td colspan="2">
+                {{records.title}}</td>
+        </tr>
+        <tr>
+            <th>Options</th>
+            <th>No. Of Votes</th>
+        </tr>
+        <tr>
+            <td>a) {{records.options[0].option}}</td>
+            <td>{{records.options[0].vote}}</td>
+        </tr>
+        <tr>
+            <td>b) {{records.options[1].option}}</td>
+            <td>{{records.options[1].vote}}</td>
+        </tr>
+        <tr>
+            <td>c) {{records.options[2].option}}</td>
+            <td>{{records.options[2].vote}}</td>
+        </tr>
+        <tr>
+            <td>d) {{records.options[3].option}}</td>
+            <td>{{records.options[3].vote}}</td>
+        </tr>
+    </table>
 </div>
