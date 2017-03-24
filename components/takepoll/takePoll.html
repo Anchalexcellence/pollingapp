@@ -45,7 +45,9 @@
         <tr>
             <td>
                 <center>
-                    <button type="submit" class="btn btn-primary" ng-click="submit(data,option)">Submit </button>
+                    <button type="submit" class="btn btn-primary" ng-click="submit(data,option)">Submit
+                        <span ng-show="isLoading"> <i class="fa fa-spinner fa-spin" style="font-size:18px"></i></span>
+                    </button>
                 </center>
             </td>
         </tr>

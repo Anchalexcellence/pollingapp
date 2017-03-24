@@ -28,6 +28,8 @@
             <input type="text" class="form-control" name="option4" ng-model="options[3] " required />
             <span ng-show="form.option4.$dirty && form.option4.$error.required" class="help-block">Option 4 is required</span>
         </div>
-        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Submit </button>
+        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Submit
+            <span ng-show="isLoading"> <i class="fa fa-spinner fa-spin" style="font-size:18px"></i></span>
+        </button>
     </form>
 </div>

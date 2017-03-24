@@ -1,7 +1,11 @@
 var app = angular.module("angularForm");
 app.controller("viewPollController", function($scope, $state, getDataFactory, $localStorage, $timeout) {
-
-
+    if ($localStorage.role == "admin") {
+        $scope.deleteButton = true;
+    } else {
+        $scope.deleteButton = false;
+    }
+    $scope.isLoading = false;
     $scope.viewdata = function() {
         $timeout(function() {
             url = "/list_polls";
@@ -19,16 +23,16 @@ app.controller("viewPollController", function($scope, $state, getDataFactory, $l
                 })
         }, 1000);
     }
-    if ($localStorage.role == "admin") {
-        $scope.deleteButton = true;
-    }
+
     $scope.delete = function(data) {
+        $scope.isLoading = true;
         url = "/delete_poll"
-        deletedata = {}
-        deletedata.id = data._id;
-        console.log(deletedata)
-        getDataFactory.getData(url).get(deletedata).$promise
+        $scope.deletedata = {}
+        $scope.deletedata.id = data._id;
+
+        getDataFactory.getData(url).get($scope.deletedata).$promise
             .then(function(response) {
+                $scope.isLoading = false;
                 if (!response.error) {
                     $scope.viewdata();
                 }

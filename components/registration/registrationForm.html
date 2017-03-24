@@ -21,13 +21,13 @@
                         <label for="singleSelect"> Role: </label>
                         <br>
                         <select class="form-control" name="role" ng-model="user.role " required>
-                            <option value="admin ">Admin</option>
-                            <option value="user ">User</option>
-                            <option value="guest ">Guest</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                            <option value="guest">Guest</option>
                         </select>
                         <span ng-show="form.role.$dirty && form.role.$error.required " class="help-block ">Role is Required:</span>
                     </div>
-                    <button type="submit " ng-init="display() " class="btn btn-success " ng-disabled="form.$invalid ">Submit <span class="fa fa-arrow-right "></span> </button>
+                    <button type="submit " ng-init="display() " class="btn btn-success " ng-disabled="form.$invalid">Submit<span ng-show="isLoading"> <i class="fa fa-spinner fa-spin" style="font-size:18px"></i></span></button>
                     <a ui-sref="login " class="pull-right padding ">Log In</a>
                 </form>
             </div>

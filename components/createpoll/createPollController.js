@@ -1,16 +1,19 @@
 var app = angular.module("angularForm");
 app.controller("createPollController", function($scope, getDataFactory, $timeout) {
+    $scope.isLoading = false;
     $scope.alertCretePollSuccess = false;
     $scope.alertCreatePollError = false;
     $scope.createPollErrMsg = '';
     $scope.options = [];
     $scope.submit = function(data) {
+        $scope.isLoading = true;
         var data = {};
         var options = $scope.options[0] + "____" + $scope.options[1] + "____" + $scope.options[2] + "____" + $scope.options[3];
         data = { "title": $scope.title, "options": options }
         url = "/add_poll";
         getDataFactory.getData(url).get(data).$promise
             .then(function(response) {
+                $scope.isLoading = false;
                 if (response.error) {
                     $scope.alertCreatePollError = true;
                     $scope.createPollErrMsg = response.data;
