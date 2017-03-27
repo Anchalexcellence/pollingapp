@@ -6,8 +6,9 @@
             <td colspan="2">
                 {{data.title}}
                 <span class="pull-right" ng-show="deleteButton">
-                    <button type="submit" class="btn btn-primary" ng-click="delete(data)">Delete 
-                    <span ng-show="(data._id==deletedata.id)?'isLoading':''"> <i class="fa fa-spinner fa-spin" style="font-size:18px"></i></span>
+                    <button type="submit" class="btn btn-primary" ng-click="delete(data)"> 
+          <span class="glyphicon glyphicon-trash">
+                </a> <span ng-show="(data._id==deletedata.id)?'isLoading':''"> <i class="fa fa-spinner fa-spin" style="font-size:18px"></i></span>
                 </button>
                 </span>
             </td>
