@@ -1,0 +1,23 @@
+<center>
+    <h3>{{formdata.title}}</h3></center>
+<div ng-show="error1" class="alert alert-danger"> {{msg}}</div>
+<div ng-show="successalert" class="alert alert-success"> Data submitted Successfully!!</div>
+<div>
+    <form name="form" novalidate ng-submit="callback({data:formdata.values})">
+        <div ng-repeat="fields in formdata.values">
+            <div ng-if="fields.Type!='select'" class="form-group" ng-class="{ 'has-error' : form.{{fields.Name}}.$invalid && !form.{{fields.Name}}.$pristine }">
+                <label for="firstName">{{fields.Label}}</label>
+                <input type="{{fields.Type}}" class="form-control" name="{{fields.Name}}" ng-model="fields.value" ng-change="change()" required>
+                <span ng-show="form.{{fields.Name}}.$dirty && form.{{fields.Name}}.$error.required" class="help-block">{{fields.Name}} is required</span>
+            </div>
+            <div ng-if="fields.Type=='select'" class="form-group" ng-class="{ 'has-error' : form.{{fields.Name}}.$invalid && !form.{{fields.Name}}.$pristine }">
+                <label for="singleSelect"> {{fields.Label}} </label>
+                <select class="form-control" name="{{fields.Name}}" ng-model="fields.value " required>
+                    <option ng-repeat="option in formdata.options " value="{{option.Value}} ">{{option.Text}}</option>
+                </select>
+                <span ng-show="form.role.$dirty && form.role.$error.required " class="help-block ">Role is Required:</span>
+            </div>
+        </div>
+        <button type="submit " class="btn btn-success" ng-disabled="form.$invalid ">{{formdata.button.Text}}
+            <span ng-show="spin"> <i class="fa fa-spinner fa-spin" style="font-size:18px"></i></span></button>
+    </form>

@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'loginController',
         })
         .state('leftmenu', {
-            abstract: true,
+
             url: '/leftmenu',
             templateUrl: 'common/leftmenu/leftMenu.html',
             controller: 'leftMenuController',
@@ -45,4 +45,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'components/viewparticularpoll/viewParticularPoll.html',
             controller: 'viewParticularPollController',
         })
+
+
 })

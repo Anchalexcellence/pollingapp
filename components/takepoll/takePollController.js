@@ -1,7 +1,7 @@
 var app = angular.module("angularForm");
 var localData = [];
 app.controller("takePollController", function($scope, $state, getDataFactory, $localStorage) {
-    $scope.isLoading = false;
+
     url = "/list_polls";
     getDataFactory.getData(url).get().$promise
         .then(function(response) {
