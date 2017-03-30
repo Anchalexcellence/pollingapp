@@ -1,27 +1,39 @@
 var app = angular.module("angularForm");
+
 app.controller("registrationController", function($scope, $http, getDataFactory, $timeout, $state) {
-    $scope.isLoading = false;
-    $scope.alertsuccess = false;
-    $scope.alerterror = false;
-    $scope.errmsg = '';
-    $scope.change = function() {
-        $scope.alerterror = false;
+    $scope.error = false;
+    $scope.loading = false;
+    $scope.success = false;
+    $scope.formdata = {
+        title: "Registration form",
+        values: [{ Label: "User Name", Type: "text", Name: "username" }, { Label: "Password", Type: "password", Name: "password" }, { Label: "Role", Type: "select", Name: "role" }],
+        button: { Type: "button", Text: "Submit" },
+        href: { Value: "login", Text: "Login" },
+        options: [{ Value: "admin", Text: "Admin" }, { Value: "user", Text: "User" }, { Value: "guest", Text: "Guest" }],
     }
-    $scope.submit = function(data) {
-        $scope.isLoading = true;
+
+    $scope.change = function() {
+        $scope.error = false;
+    }
+    $scope.submit = function(registerinfo) {
+        var data = { "username": registerinfo[0].value, "password": registerinfo[1].value, "role": registerinfo[2].value }
+        $scope.loading = true;
         url = "/add_user";
         getDataFactory.getData(url).get(data).$promise
             .then(function(response) {
-                    $scope.isLoading = false;
+                    $scope.loading = false;
                     if (response.error) {
-                        $scope.alerterror = true;
-                        $scope.errmsg = response.message;
+
+                        $scope.error = true;
+                        $scope.errMsg = response.message;
+
                     } else {
-                        $scope.alertsuccess = true;
-                        $scope.form.$setPristine();
+                        $scope.success = true;
+
                         $timeout(function() {
-                            $scope.alertsuccess = false;
-                            $scope.user = {};
+                            $scope.success = false;
+
+
                             $state.go('login');
                         }, 3000)
 

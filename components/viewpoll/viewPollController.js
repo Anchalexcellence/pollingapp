@@ -1,5 +1,6 @@
 var app = angular.module("angularForm");
 app.controller("viewPollController", function($scope, $state, getDataFactory, $localStorage, $timeout) {
+    $scope.isLoading = false;
     if ($localStorage.role == "admin") {
         $scope.deleteButton = true;
     } else {
@@ -7,10 +8,12 @@ app.controller("viewPollController", function($scope, $state, getDataFactory, $l
     }
     $scope.isLoading = false;
     $scope.viewdata = function() {
+        $scope.isLoading = true;
         $timeout(function() {
             url = "/list_polls";
             getDataFactory.getData(url).get().$promise
                 .then(function(response) {
+                    $scope.isLoading = false;
                     if (!response.error) {
                         $scope.records = [];
                         for (var i = 0; i < response.data.length; i++) {

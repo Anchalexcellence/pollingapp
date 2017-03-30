@@ -1,26 +1,33 @@
 var app = angular.module("angularForm");
 app.controller("loginController", function($scope, $state, getDataFactory, $localStorage) {
-    $scope.isLoading = false;
-    $scope.login = function(data) {
-        $scope.isLoading = true;
+
+    $scope.formdata = { title: "Login form", values: [{ Label: "User Name", Type: "text", Name: "username" }, { Label: "Password", Type: "password", Name: "password" }], button: { Type: "SUBMIT", Text: "Login" }, href: { Value: "register", Text: "New User" } };
+
+    $scope.error = false;
+    $scope.login = function(logininfo) {
+        var data = { "username": logininfo[0].value, "password": logininfo[1].value }
+        $scope.loading = true;
         url = "/login";
         getDataFactory.getData(url).get(data).$promise
 
             .then(function(response) {
-            $scope.isLoading = false;
+
             if (response.error) {
-                $scope.isLoading = "false";
-                $scope.alertLoginError = true;
-                $scope.loginErrrMsg = response.data;
+                $scope.loading = false;
+
+                $scope.error = true;
+
+
+                $scope.errMsg = response.data;
+
+
             } else {
                 $localStorage.role = response.data.role;
-                $scope.form.$setPristine();
-                $scope.user = {};
                 $state.go('leftmenu.createpoll');
             }
         })
     }
     $scope.change = function() {
-        $scope.alertLoginError = false;
+        $scope.error = false;
     }
 });
