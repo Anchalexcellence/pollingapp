@@ -23,6 +23,7 @@ app.controller("loginController", function($scope, $state, getDataFactory, $loca
 
             } else {
                 $localStorage.role = response.data.role;
+                $localStorage.id = response.data._id;
                 $state.go('leftmenu.createpoll');
             }
         })
