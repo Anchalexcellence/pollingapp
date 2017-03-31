@@ -1,5 +1,5 @@
 var app = angular.module("angularForm");
-app.controller("createPollController", function($scope, getDataFactory, $timeout) {
+app.controller("createPollController", function($scope, getDataFactory, $timeout, $localStorage, $state) {
     $scope.formdata = {
         title: "Create Poll",
         values: [{ Label: "Enter Question", Type: "text", Name: "question" }, { Label: "Enter Option 1", Type: "text", Name: "option1" }, { Label: "Enter Option 2", Type: "text", Name: "option2" }, { Label: "Enter Option3", Type: "text", Name: "option3" }, { Label: "Enter Option 4", Type: "text", Name: "option4" }],
@@ -7,33 +7,36 @@ app.controller("createPollController", function($scope, getDataFactory, $timeout
     }
     $scope.success = false;
     $scope.loading = false;
-    $scope.alertCretePollSuccess = false;
-    $scope.alertCreatePollError = false;
-    $scope.createPollErrMsg = '';
+    $scope.error = false;
+
     $scope.options = [];
     $scope.submit = function(polldata) {
-        $scope.isLoading = true;
+        $scope.formdata = polldata;
+        $scope.loading = true;
         var data = {};
         var options = polldata[1].value + "____" + polldata[2].value + "____" + polldata[3].value + "____" + polldata[4].value;
         data = { "title": polldata[0].value, "options": options }
         url = "/add_poll";
         getDataFactory.getData(url).get(data).$promise
             .then(function(response) {
-                $scope.isLoading = false;
+                $scope.loading = false;
                 if (response.error) {
-                    $scope.alertCreatePollError = true;
-                    $scope.createPollErrMsg = response.data;
+                    $scope.error = true;
+                    $scope.errMsg = response.message;
                 } else {
                     $scope.success = true;
                     $timeout(function() {
                         $scope.success = false;
-                        $scope.title = '';
-                        $scope.options = {};
+                        $state.go('leftmenu.createpoll');
+                        for (var i = 0; i < $scope.formdata.length; i++) {
+                            $scope.formdata[i].value = "";
+                        }
 
                     }, 3000)
 
                 }
             })
     }
+
 
 });
