@@ -6,9 +6,7 @@ app.controller('leftMenuController', function($scope, $location, $localStorage, 
         return active;
     };
     $scope.logout = function() {
-        console.log(">>>>>>>>>>>>>>>>>>>>", $localStorage)
         $localStorage.$reset();
-        console.log(">>>>>>>>>>>>>>>>>>>>cccc", $localStorage)
         $state.go("login")
 
     }
