@@ -13,7 +13,6 @@ app.directive('myform', function() {
             callback: '&',
             change: '&'
         },
-
         controller: function($scope, $interval) {
             $scope.formdata = JSON.parse($scope.parameter);
             $interval(function() {
@@ -22,9 +21,6 @@ app.directive('myform', function() {
                 }
 
             }, 2000)
-
-
-
         }
     }
 });

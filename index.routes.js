@@ -8,17 +8,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/register',
             templateUrl: 'components/registration/registrationForm.html',
             controller: 'registrationController',
+
         })
         .state('login', {
             url: '/login',
             templateUrl: 'components/login/loginForm.html',
             controller: 'loginController',
+
         })
         .state('leftmenu', {
 
             url: '/leftmenu',
             templateUrl: 'common/leftmenu/leftMenu.html',
             controller: 'leftMenuController',
+
 
         })
         .state('leftmenu.createpoll', {
